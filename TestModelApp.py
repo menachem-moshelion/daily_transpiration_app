@@ -126,8 +126,8 @@ if "user_data" in st.session_state:
             st.stop()
 
         model_data = clean_data(model_data)
-        X_test = model_data.drop(['Transpiration'], axis=1)
-        y_test = model_data['Transpiration']
+        X_test = model_data.drop(['Transpiration'], axis=1).astype(float)
+        y_test = model_data['Transpiration'].astype(float)
         evaluation_df, plot_y = load_and_test_models(X_test, y_test)
         st.write(evaluation_df)
         # Display the plot in Streamlit
