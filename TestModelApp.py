@@ -10,7 +10,7 @@ logging.basicConfig(filename='logging.log', level=logging.INFO, format='%(asctim
 # streamlit run TestModelApp.py
 
 # Define the Streamlit interface
-st.title("Model Testing App")
+st.title("Model Testing App 🤖🌿")
 st.markdown("### Welcome to the Model Testing App!")
 st.write(
     "This web application allows users to test our trained models on their own data from the SPAC analytics software.\n\n"
