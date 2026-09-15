@@ -308,8 +308,10 @@ def get_daily_data_from_SPAC(start_date, end_date, authorization, plant_id, exp_
 
     plant_full_daily_data = get_daily(plant_df, plant_daily_data, control_id)
 
-    plant_full_daily_data['encoded_plant'] = (plant_full_daily_data['plant_type'].replace({'cereal': 1, 'tomato': 0}).astype(float))
-    plant_full_daily_data['encoded_soil'] = (plant_full_daily_data['soil_sand'].replace({'sand': 0, 'soil': 1}).astype(float))
+    plant_full_daily_data['encoded_plant'] = (plant_full_daily_data['plant_type']
+        .map({'cereal': 1, 'tomato': 0}).astype(float))
+    plant_full_daily_data['encoded_soil'] = (plant_full_daily_data['soil_sand']
+        .map({'sand': 0, 'soil': 1}).astype(float))
     
     plant_full_daily_data.rename(columns={"wsrh": "RH", "wstemp": "Temp", "dt" : "Transpiration", "pnw": "plant_weight"}, inplace=True)
 
