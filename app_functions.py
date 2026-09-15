@@ -4,9 +4,6 @@ import numpy as np
 import requests
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from tensorflow.keras.models import Sequential, load_model
-#from tensorflow.keras.wrappers.scikit_learn import KerasRegressor
-from scikeras.wrappers import KerasRegressor
-#from keras.models import Sequential, load_model
 import joblib
 from scipy.signal import savgol_filter
 import streamlit as st
@@ -428,7 +425,7 @@ def evaluate_and_compare_models(models, X_test, y_test, scaler=None):
     model_metrics = {}
     
     for model, model_name in models:
-        is_nn = isinstance(model, KerasRegressor) or isinstance(model, Sequential)
+        is_nn = isinstance(model, Sequential)
         model_metrics[model_name] = evaluate_model(model, X_test, y_test, is_nn, scaler)
 
     # Create DataFrame for results
