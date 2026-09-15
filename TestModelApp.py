@@ -99,7 +99,17 @@ if st.button("Get my data"):
 # If data is available, allow inspection and modification
 if "user_data" in st.session_state:
     st.subheader("Inspect & Modify Data")
-    
+
+    if st.session_state.get("weight_auto_reset", False):
+        original_weight = st.session_state.get("original_high_weight")
+
+        st.warning(
+            f"⚠️ The initial plant weight was unusually high ({original_weight:.1f} g)."
+            "Because the recorded weight exceeded 1500 g, the app automatically "
+            "recalculated plant biomass so that the initial processed plant weight "
+            "is approximately 10 g."
+        )
+        
     # Apply adjustment function
     adjusted_data = adjust_plant_weight(st.session_state["user_data"])
 

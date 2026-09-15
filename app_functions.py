@@ -263,6 +263,12 @@ def process_plant_weight(data):
         # If the first 4 values are NaN, set a base start of 10 g (shift_value)
         if group['plant_weight_process'].iloc[:4].isnull().all() or group['plant_weight_process'].max() > 1500:
 
+            if group['plant_weight_process'].max() > 1500:
+                st.session_state["weight_auto_reset"] = True
+                st.session_state["original_high_weight"] = float(
+                    group['plant_weight_process'].iloc[0]
+                )
+
             # Shift the series to start from 10g
             first_valid_index = group['plant_weight'].first_valid_index() #sometimes starts with Nan so we need this
 
