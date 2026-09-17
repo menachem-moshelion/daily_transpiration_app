@@ -1,21 +1,22 @@
-streamlit==1.39.1
+Python==3.10.12
+streamlit==1.37.1
 
-pandas==2.2.3
-numpy==1.26.4
+pandas==1.5.3
+numpy==1.23.1
 
 scikit-learn==1.2.2
-xgboost==2.1.4
+xgboost==1.7.3
 
-tensorflow==2.17.1
-keras==3.6.0
+tensorflow==2.10.0
+keras==2.10.0
 
-scipy==1.11.4
-statsmodels==0.14.4
+scipy==1.10.1
+statsmodels==0.14.0
 
-matplotlib==3.9.2
-seaborn==0.13.2
-plotly==5.24.1
+matplotlib==3.7.1
+seaborn==0.12.2
+plotly==5.9.0
 
-pyarrow==17.0.0
-requests==2.32.3
+pyarrow==11.0.0
+requests==2.29.0
 joblib==1.4.2
