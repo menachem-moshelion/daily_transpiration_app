@@ -160,7 +160,8 @@ def process_SPAC_data(raw_data, start_date, end_date, plants_id, exp_id, control
     
     # Add the missing timestamp check and insertion after sorting the index
     expected_interval = timedelta(minutes=3)
-    all_timestamps = pd.date_range(start=start_date, end=end_date, freq=expected_interval)
+    end_datetime = (pd.Timestamp(end_date) + pd.Timedelta(days=1) - pd.Timedelta(minutes=3)) # Include the entire final day
+    all_timestamps = pd.date_range(start=start_date, end=end_datetime, freq=expected_interval)
     merged_data = merged_data.reindex(all_timestamps, fill_value=np.NaN)
     
     # add constent info
